@@ -8,16 +8,16 @@ import WordsContainer from "./components/WordsContainer";
 import useEngine from "./hooks/useEngine";
 
 function App() {
-  const { words, state } = useEngine();
+  const { words, state, timeleft } = useEngine();
 
   const buttonRef = useRef<HTMLInputElement>(null);
 
   return (
     <>
-      <CountdownTimer timeLeft={30} />
+      <CountdownTimer timeLeft={timeleft} />
       <WordsContainer>
         <GenerateWords words={words} />
-        <UserInputs className=" absolute inset-0" userInputs={words} />
+        <UserInputs className=" absolute inset-0" userInputs={"test"} />
       </WordsContainer>
       <RestartButton
         className={" mx-auto mt-10 text-slate-500"}
