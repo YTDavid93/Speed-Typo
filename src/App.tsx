@@ -3,6 +3,7 @@ import GenerateWords from "./components/GenerateWords";
 import CountdownTimer from "./components/CountdownTimer";
 import RestartButton from "./components/RestartButton";
 import { useRef } from "react";
+import Results from "./components/Results";
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <CountdownTimer timeLeft={30} />
       <GenerateWords words={words} />
       <RestartButton className={" mx-auto mt-10 text-slate-500"} onRestart={() => buttonRef.current?.focus} />
+      <Results className="mt-10" errors={20} accuracyPercentage={20} typed={40} />
     </>
   );
 }
