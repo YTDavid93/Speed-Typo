@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { formatPercentage } from "../utils/helpers";
 
 interface ResultsProps {
   errors: number;
@@ -33,7 +34,7 @@ const Results = ({
         animate={animate}
         transition={{ ...duration, delay: 0.5 }}
       >
-        Accuracy: {accuracyPercentage}
+        Accuracy: {formatPercentage(accuracyPercentage)}
       </motion.li>
       <motion.li
         initial={initial}
