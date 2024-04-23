@@ -1,14 +1,17 @@
+import { faker } from "@faker-js/faker";
+import GenerateWords from "./components/GenerateWords";
+import CountdownTimer from "./components/CountdownTimer";
 
 
 function App() {
-
+  const words = faker.word.words(20); //generating random words from faker.js
+  
   return (
     <>
-      <p className="text-3xl font-bold underline">
-        Click on the Vite and React logos to learn more
-      </p>
+      <CountdownTimer timeLeft={30} />
+      <GenerateWords words={words} />
     </>
   );
 }
 
-export default App
+export default App;
