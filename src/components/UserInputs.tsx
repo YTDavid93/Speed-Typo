@@ -1,3 +1,4 @@
+import Caret from "./Caret";
 
 interface Props {
     userInputs: string;
@@ -9,10 +10,11 @@ const UserInputs = ({ userInputs, className}: Props) => {
   const typerChars = userInputs.split("") // this converts string into singe array
 
   return (
-    <div className={className}>
+      <div className={className}>
         {typerChars.map((char, index) => (
             <Characters key={`${char}_${index}`} char={char} />
         ))}
+        <Caret />   
     </div>
   )
 }
