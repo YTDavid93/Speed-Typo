@@ -6,10 +6,12 @@ import { useRef } from "react";
 import Results from "./components/Results";
 import UserInputs from "./components/UserInputs";
 import WordsContainer from "./components/WordsContainer";
+import useEngine from "./hooks/useEngine";
 
 
 function App() {
-  const words = faker.word.words(20); //generating random words from faker.js
+
+  const { words, state } = useEngine()
 
   const buttonRef =  useRef<HTMLInputElement>(null);
   
