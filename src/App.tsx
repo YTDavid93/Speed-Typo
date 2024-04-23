@@ -1,4 +1,3 @@
-import { faker } from "@faker-js/faker";
 import GenerateWords from "./components/GenerateWords";
 import CountdownTimer from "./components/CountdownTimer";
 import RestartButton from "./components/RestartButton";
@@ -8,13 +7,11 @@ import UserInputs from "./components/UserInputs";
 import WordsContainer from "./components/WordsContainer";
 import useEngine from "./hooks/useEngine";
 
-
 function App() {
+  const { words, state } = useEngine();
 
-  const { words, state } = useEngine()
+  const buttonRef = useRef<HTMLInputElement>(null);
 
-  const buttonRef =  useRef<HTMLInputElement>(null);
-  
   return (
     <>
       <CountdownTimer timeLeft={30} />
@@ -22,8 +19,16 @@ function App() {
         <GenerateWords words={words} />
         <UserInputs className=" absolute inset-0" userInputs={words} />
       </WordsContainer>
-      <RestartButton className={" mx-auto mt-10 text-slate-500"} onRestart={() => buttonRef.current?.focus} />
-      <Results className="mt-10" errors={20} accuracyPercentage={20} typed={40} />
+      <RestartButton
+        className={" mx-auto mt-10 text-slate-500"}
+        onRestart={() => buttonRef.current?.focus}
+      />
+      <Results
+        className="mt-10"
+        errors={20}
+        accuracyPercentage={20}
+        typed={40}
+      />
     </>
   );
 }
