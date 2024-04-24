@@ -3,7 +3,7 @@ export const formatPercentage = (percentage: number) => {
     return percentage.toFixed(0) + "%"
 };
 
-export const countErros = (actual: string, expected: string) => {
+export const countErrors = (actual: string, expected: string) => {
   const expectedCharacters = expected.split(" ");
 
   return expectedCharacters.reduce((errors, expectedchars, i) => {
