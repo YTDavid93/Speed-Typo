@@ -25,7 +25,7 @@ const useEngine = () => {
   const areWordsFinished = cursor === words.length;
 
   const sumErrors = useCallback(() => {
-    const wordsReached = words.substring(0, cursor);
+    const wordsReached = words.substring(0, Math.min(cursor, words.length));
     setErrors((prevError) => prevError + countErrors(typed, wordsReached));
   }, [typed, cursor, words]);
 
