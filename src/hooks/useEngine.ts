@@ -32,26 +32,23 @@ const useEngine = () => {
   // as soon as user starts typing the first letter, we start
   useEffect(() => {
     if (isStarting) {
-      console.log("Running... state");
       setState("run"); // initial state will be start later we need it in run state
       startCountDown();
     }
-  }, [isStarting, startCountDown, cursor]);
+  }, [isStarting, startCountDown]);
 
   // when time is up
   useEffect(() => {
-    if (!timeleft) {
-      console.log("Time is over");
+    if (!timeleft && state === "run") {
       setState("finish");
       sumErrors();
     }
-  }, [timeleft, sumErrors]);
+  }, [timeleft, state, sumErrors]);
 
   // when the current words are all filled up, we generate and show another set of words
 
   useEffect(() => {
     if (areWordsFinished) {
-      console.log("words are finished...");
       sumErrors();
       updateWords();
       clearTyped();
@@ -67,7 +64,6 @@ const useEngine = () => {
   ]);
 
   const restart = useCallback(() => {
-    console.log("..restarting");
     resetCountDown();
     resetTotalTyped();
     setState("start");
