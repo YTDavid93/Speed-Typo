@@ -4,7 +4,7 @@ export const formatPercentage = (percentage: number) => {
 };
 
 export const countErrors = (actual: string, expected: string) => {
-  const expectedCharacters = expected.split(" ");
+  const expectedCharacters = expected.split("");
 
   return expectedCharacters.reduce((errors, expectedchars, i) => {
     const acutalChars = actual[i];
